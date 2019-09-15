@@ -1,0 +1,9 @@
+diff a/src/pages/system/Manager.vue b/src/pages/system/Manager.vue	(rejected hunks)
+@@ -217,6 +217,7 @@
+           id: '',
+           username: '',
+           mobile:'',
++          voicePhone:'',
+           realname: '',
+           roleIds: [],
+           status: true,
