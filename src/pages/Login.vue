@@ -27,7 +27,7 @@
 <script>
 import DataUtil from '../common/dataUtil'
   // import mlChangePassword from '../components/_changePasswordInn.vue'
-  import mlChangePassword from '../components/_changePassword.vue'
+  import mlChangePassword from '../components/_changePasswordInn.vue'
   import enums from '../common/Enum'
   export default {
    data() {
@@ -40,12 +40,12 @@ import DataUtil from '../common/dataUtil'
      loginRule: {
       username: [{
        required: true,
-       message: '请输入账号',
+       message: 'Silakan masukkan nomor akun',//'请输入账号',
        trigger: 'blur'
       }],
       password: [{
        required: true,
-       message: '请输入密码',
+       message: 'Silakan masukkan kata sandi Anda',//'请输入密码',
        trigger: 'blur'
       }]
      },

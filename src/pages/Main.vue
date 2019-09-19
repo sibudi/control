@@ -77,8 +77,8 @@ export default {
       employeeNumber: '',
       menuList: [],
       menuListByInn: [],
-      changeCn: true,
-      changeInn: false,
+      changeCn: false,
+      changeInn: true,
       innMenuList:[],
       userUuid:DataUtil.uuid(),
       menuListCn: [{

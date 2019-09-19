@@ -433,6 +433,10 @@ getdate(dates) {
       this.distributeLoading = false;
       let {body} = response;
       if(1 == body.code){
+        this.$message({
+          message: 'Berhasil dialokasikan',
+          type: 'success'
+        })
         this.bindGrid();
       }
     });
@@ -469,6 +473,10 @@ autoDistribute(row) {      //自动分配返显
       this.userListData = [];
       this.orderD0Assign = body.data.orderStatistics;
       this.userListData = body.data.collectorOrderStatistics;
+      this.$message({
+          message: 'Alokasi otomatis berhasil',
+          type: 'success'
+        });
     }else{
       this.$message.error(body.message);
     }
@@ -479,7 +487,7 @@ autoDistribute(row) {      //自动分配返显
 
     for(let i=0;i<this.userListData.length;i++){
       if(this.userListData[i].unAssignedReBorrowingCount0 === '' || this.userListData[i].unAssignedReBorrowingCount1 === ''|| this.userListData[i].unAssignedReBorrowingCount2 === ''|| this.userListData[i].unAssignedReBorrowingCount3 === ''|| this.userListData[i].unAssignedReBorrowingCountN === ''){
-        this.$message.error('所有分配订单数不能为空');
+        this.$message.error('Semua pesanan alokasi tidak boleh kosong');
         return;
       }else{
         _unAssign0Count += parseInt(this.userListData[i].unAssignedReBorrowingCount0);
@@ -492,7 +500,7 @@ autoDistribute(row) {      //自动分配返显
           }
           console.log(this.userListData);
           if(_unAssign0Count > this.orderD0Assign.unAssignedReBorrowingCount0 || _unAssign1Count > this.orderD0Assign.unAssignedReBorrowingCount1 || _unAssign2Count > this.orderD0Assign.unAssignedReBorrowingCount2 || _unAssign3Count > this.orderD0Assign.unAssignedReBorrowingCount3 || _unAssign4Count > this.orderD0Assign.unAssignedReBorrowingCountN){
-            this.$message.error('剩余待分配订单数不足，请重新分配');
+            this.$message.error('Tidak ada sisa pesanan yang cukup untuk dialokasikan, harap ditugaskan kembali');
             return;
           }
           if (this.otherAmount == true) {
@@ -513,7 +521,7 @@ autoDistribute(row) {      //自动分配返显
             if(body.code == 1){
               this.$message({
                 type: 'success',
-                message: 'Sudah dialokasi'
+                message: 'Berhasil diubah'
               });
               this.editFormDigVisible = false;
               this.bindGrid();

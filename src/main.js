@@ -5,6 +5,7 @@ import VueResource from 'vue-resource'
 import Vuex from 'vuex'
 import babelpolyfill from 'babel-polyfill'
 import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/id'
 import NProgress from 'nprogress'
 import VueVideoPlayer from 'vue-video-player'
 
@@ -31,7 +32,7 @@ import DataUtil from './common/dataUtil'
 Vue.use(VueResource);
 Vue.use(VueRouter);
 Vue.use(Vuex);
-Vue.use(ElementUI);
+Vue.use(ElementUI, { locale });
 Vue.use(VueVideoPlayer)
 
 //进度条

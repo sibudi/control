@@ -7,10 +7,10 @@ const routes = [{
 },{
   name:'management system',
   path:'/',
-  redirect:'/home',
+  redirect:'/homeInn',
   component:Main,
   children:[{
-    name:'首页',
+    name: 'Home',//'首页',
     path:'/home',
     component:resolve => require(['../pages/Home.vue'], resolve),
   },{
