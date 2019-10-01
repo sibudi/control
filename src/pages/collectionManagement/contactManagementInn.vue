@@ -7,8 +7,8 @@
         <template scope="scope">
           <el-switch name="index++"
           v-model="scope.row.sysValue1"
-          active-text="开"
-          inactive-text="关" @change="updateCollectionSms(scope.row.sysKey1, scope.row.sysValue1)">
+          active-text="Aktif"
+          inactive-text="Tidak Aktif" @change="updateCollectionSms(scope.row.sysKey1, scope.row.sysValue1)">
         </el-switch>
       </template>
     </el-table-column>
@@ -16,8 +16,8 @@
       <template scope="scope">
         <el-switch name="index++"
         v-model="scope.row.sysValue2"
-        active-text="开"
-        inactive-text="关" @change="updateCollectionSms(scope.row.sysKey2, scope.row.sysValue2)">
+        active-text="Aktif"
+        inactive-text="Tidak Aktif" @change="updateCollectionSms(scope.row.sysKey2, scope.row.sysValue2)">
       </el-switch>
     </template>
   </el-table-column>

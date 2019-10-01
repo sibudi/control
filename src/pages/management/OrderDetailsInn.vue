@@ -1626,7 +1626,7 @@ tijiaofor(){
   this.$http.post("manage/insertManCollectionRemark", _data).then(response => {
     if (1 == response.body.code && response.body.data) {
       this.addDialogVisible = false;
-      this.$message("提交成功");
+      this.$message("Berhasil");
       this.getBaseMobile();
       this.getBaseMobileone();
       this.getBaseMobiletwo();

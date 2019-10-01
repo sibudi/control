@@ -376,6 +376,9 @@ export default {
         },{
           permissionName: 'Kupon statistik',
           permissionUrl: '/CouponStatisticsInn',
+        },{
+          permissionName:'Batalkan Permohonan',
+          permissionUrl:'/cancleOrderInn',
         }]
       },{
         permissionName:'Manajemen keuangan',
@@ -419,133 +422,133 @@ export default {
     changePassword() {
       this.$refs.changePassword.show()
     },
-      //退出登录
-      logout() {
-        this.$confirm('确认退出登录吗?', '提示', {}).then(() => {
-          this.$http.post('manage/sysLoginOut');
-          DataUtil.sid('')
-          this.$router.push('/login')
-        }).catch(() => {
+    //退出登录
+    logout() {
+      this.$confirm('确认退出登录吗?', '提示', {}).then(() => {
+        this.$http.post('manage/sysLoginOut');
+        DataUtil.sid('')
+        this.$router.push('/login')
+      }).catch(() => {
 
-        });
-      },
-      logoutone() {
-        this.$confirm('Apakah Anda yakin keluar dari akun?', 'Pemberitahuan', {}).then(() => {
-          this.$http.post('manage/sysLoginOut');
-          DataUtil.sid('')
-          this.$router.push('/login')
-        }).catch(() => {
+      });
+    },
+    logoutone() {
+      this.$confirm('Apakah Anda yakin keluar dari akun?', 'Pemberitahuan', {}).then(() => {
+        this.$http.post('manage/sysLoginOut');
+        DataUtil.sid('')
+        this.$router.push('/login')
+      }).catch(() => {
 
-        });
-      },
-      updateurl(){
-        let upUrl=window.location.href;
-        if(upUrl.indexOf('Inn')==-1){
-          this.changeCn=true,
-          this.changeInn= false
-        }else{
-          this.changeCn=false,
-          this.changeInn= true
-        }
-      },
-      pageInit() {
-        this.userName = DataUtil.userName()
-        this.employeeNumber = DataUtil.employeeNumber()
-        //this.userUuid = DataUtil.uuid()
-      },
-      getMenuListInn() {
-        var postData = {
-          id: DataUtil.id()
-        }
-        this.$http.post('manage/permissionTreeInnByUserId', postData).then(response => {
-          let {
-            status,
-            body
-          } = response;
-          this.menuListByInn = body.data;
-          this.getInnMenuList();
-          DataUtil.savePermission(body.data);     /*将权限列表存入localStorage*/
-        })
-      },
-      getMenuList() {
-        var postData = {
-          id: DataUtil.id()
-        }
-        this.$http.post('manage/permissionTreeByUserId', postData).then(response => {
-          let {
-            status,
-            body
-          } = response;
-          this.menuList = body.data;
-          DataUtil.savePermission(body.data);     /*将权限列表存入localStorage*/
-        })
-      },
-      cn(){
-        this.changeCn=true;
-        this.changeInn=false;
-        let urlCheck=window.location.hash;
-        if(urlCheck.indexOf('?')!==-1){
-          console.log(urlCheck.substring(urlCheck.indexOf('?')-3,urlCheck.indexOf('?')))
-          if(urlCheck.substring(urlCheck.indexOf('?')-3,urlCheck.indexOf('?'))=="Inn"){
-            urlCheck=urlCheck.replace("Inn","");
-            window.location.href=urlCheck;
-          }else{
-            window.location.href=window.location.hash;
-          }
-
-        }else{
-          if(urlCheck.slice(-3)=="Inn"){
-            urlCheck=urlCheck.substring(0,urlCheck.length-3)
-            window.location.href=urlCheck;
-          }else{
-            window.location.href=window.location.hash;
-          }
-        }
-      },
-      inn(){
-        this.changeCn=false;
-        this.changeInn=true;
-        let urlCheck=window.location.hash;
-        if(urlCheck.indexOf('?')!==-1){
-          console.log(urlCheck.substring(urlCheck.indexOf('?')-3,urlCheck.indexOf('?')))
-          if(urlCheck.substring(urlCheck.indexOf('?')-3,urlCheck.indexOf('?'))=="Inn"){
-            window.location.href=window.location.hash;
-          }else{
-            urlCheck=urlCheck.replace("?","Inn?");
-            console.log(urlCheck)
-            window.location.href=urlCheck;
-
-          }
-        }else{
-          console.log("b")
-          if(urlCheck.slice(-3)=="Inn"){
-            window.location.href=window.location.hash;
-          }else{
-            window.location.href=window.location.hash+"Inn";
-          }
-        }
-
-
-        // let urlCheck=window.location.hash;
-        // if(urlCheck.slice(-3)=="Inn"){
-        //   window.location.href=window.location.hash;
-        // }else{
-        //   window.location.href=window.location.hash+"Inn";
-        // }
+      });
+    },
+    updateurl(){
+      let upUrl=window.location.href;
+      if(upUrl.indexOf('Inn')==-1){
+        this.changeCn=true,
+        this.changeInn= false
+      }else{
+        this.changeCn=false,
+        this.changeInn= true
       }
     },
-    mounted() {
-      this.pageInit();
-      this.getMenuList();
-      this.getMenuListInn();
-      console.info(this.innMenuList);
-      this.updateurl();
+    pageInit() {
+      this.userName = DataUtil.userName()
+      this.employeeNumber = DataUtil.employeeNumber()
+      //this.userUuid = DataUtil.uuid()
     },
+    getMenuListInn() {
+      var postData = {
+        id: DataUtil.id()
+      }
+      this.$http.post('manage/permissionTreeInnByUserId', postData).then(response => {
+        let {
+          status,
+          body
+        } = response;
+        this.menuListByInn = body.data;
+        this.getInnMenuList();
+        DataUtil.savePermission(body.data);     /*将权限列表存入localStorage*/
+      })
+    },
+    getMenuList() {
+      var postData = {
+        id: DataUtil.id()
+      }
+      this.$http.post('manage/permissionTreeByUserId', postData).then(response => {
+        let {
+          status,
+          body
+        } = response;
+        this.menuList = body.data;
+        DataUtil.savePermission(body.data);     /*将权限列表存入localStorage*/
+      })
+    },
+    cn(){
+      this.changeCn=true;
+      this.changeInn=false;
+      let urlCheck=window.location.hash;
+      if(urlCheck.indexOf('?')!==-1){
+        console.log(urlCheck.substring(urlCheck.indexOf('?')-3,urlCheck.indexOf('?')))
+        if(urlCheck.substring(urlCheck.indexOf('?')-3,urlCheck.indexOf('?'))=="Inn"){
+          urlCheck=urlCheck.replace("Inn","");
+          window.location.href=urlCheck;
+        }else{
+          window.location.href=window.location.hash;
+        }
+
+      }else{
+        if(urlCheck.slice(-3)=="Inn"){
+          urlCheck=urlCheck.substring(0,urlCheck.length-3)
+          window.location.href=urlCheck;
+        }else{
+          window.location.href=window.location.hash;
+        }
+      }
+    },
+    inn(){
+      this.changeCn=false;
+      this.changeInn=true;
+      let urlCheck=window.location.hash;
+      if(urlCheck.indexOf('?')!==-1){
+        console.log(urlCheck.substring(urlCheck.indexOf('?')-3,urlCheck.indexOf('?')))
+        if(urlCheck.substring(urlCheck.indexOf('?')-3,urlCheck.indexOf('?'))=="Inn"){
+          window.location.href=window.location.hash;
+        }else{
+          urlCheck=urlCheck.replace("?","Inn?");
+          console.log(urlCheck)
+          window.location.href=urlCheck;
+
+        }
+      }else{
+        console.log("b")
+        if(urlCheck.slice(-3)=="Inn"){
+          window.location.href=window.location.hash;
+        }else{
+          window.location.href=window.location.hash+"Inn";
+        }
+      }
+
+
+      // let urlCheck=window.location.hash;
+      // if(urlCheck.slice(-3)=="Inn"){
+      //   window.location.href=window.location.hash;
+      // }else{
+      //   window.location.href=window.location.hash+"Inn";
+      // }
+      }
+    },
+  mounted() {
+    this.pageInit();
+    this.getMenuList();
+    this.getMenuListInn();
+    console.info(this.innMenuList);
+    this.updateurl();
+  },
     components: {
       mlChangePassword,
       mlMessage
     }
-  }
+}
 
   </script>
   <style scoped>

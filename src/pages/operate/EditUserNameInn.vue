@@ -37,7 +37,7 @@
           if(body.code == 1){
                this.$message({
                     type: 'success',
-                    message: '修改成功'
+                    message: 'Berhasil'
                 });
 
               this.$refs.searchForm && this.$refs.searchForm.resetFields();

@@ -91,7 +91,7 @@ export default {
     let checkPermission = (rule, value, callback) => {
       let _arr = this.getPermissionIds(value)
       if (_arr.length == 0) {
-        callback(new Error('至少选择一项'))
+        callback(new Error('Pilih salah satu'))
       }
       callback()
     }
@@ -128,12 +128,12 @@ export default {
           }],
           smsTitle:[{
             required: true,
-            message: 'harap masukin Judulnya',
+            message: 'Silahkan masukkan judul',
             trigger: 'blur'
           }],
           smsContent:[{
             required: true,
-            message: 'silahkan pilih kontennya',
+            message: 'Silahkan masukkan isi',
             trigger: 'blur'
           }]
         },

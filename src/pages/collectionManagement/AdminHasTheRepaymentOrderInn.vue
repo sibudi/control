@@ -12,8 +12,8 @@
       <el-form-item label="Nomor Ponsel">
         <el-input v-model="searchForm.mobile"></el-input>
       </el-form-item>
-        <el-form-item label="是否分期">
-     <el-select v-model="searchForm.isTerms" placeholder="请选择" clearable>
+        <el-form-item label="Cicilan">
+     <el-select v-model="searchForm.isTerms" placeholder="Silahkan pilih" clearable>
       <el-option v-for="item in termsList" :label="item.name" :key="item.code" :value="item.code"></el-option>
     </el-select>
   </el-form-item>
@@ -148,10 +148,10 @@ export default {
       },
       termsList : [ {
         code:'1',
-        name:'是'
+        name:'Ya'
       },{
         code:'2',
-        name:'否'
+        name:'Bukan'
       }],
       thirdCompanyList: [],
       fjzhuangtai:[{

@@ -376,7 +376,7 @@ export default {
       this.bindGrid()
     },
     check(row){
-      window.open('#/UserDetailInn?&uuid='+row.uuid);
+      window.open('#/UserDetail?&uuid='+row.uuid);
     },
     rowClick(row){
       window.open('#/completeOrderDetailInn?seen=true&userUuid='+row.userUuid+

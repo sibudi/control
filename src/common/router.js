@@ -10,7 +10,7 @@ const routes = [{
   redirect:'/homeInn',
   component:Main,
   children:[{
-    name: 'Home',//'首页',
+    name: 'HomeCN',//'首页',
     path:'/home',
     component:resolve => require(['../pages/Home.vue'], resolve),
   },{
@@ -81,7 +81,7 @@ const routes = [{
     component:resolve => require(['../pages/system/RoleInn.vue'], resolve)
   },{
     name:'Manajemen akun pengguna',
-    path:'ManagerInn',
+    path:'/ManagerInn',
     component:resolve => require(['../pages/system/ManagerInn.vue'], resolve)
   },{
     name:'初审列表',
@@ -104,11 +104,7 @@ const routes = [{
     path: '/AuditPersonnelmanage',
     component:resolve => require(['../pages/order/AuditPersonnelmanage.vue'], resolve),
   },{
-    name: '审核人员管理',
-    path: '/AuditPersonnelmanage',
-    component:resolve => require(['../pages/order/AuditPersonnelmanage.vue'], resolve),
-  },{
-    name: 'Manajemen petugas verivikasi',
+    name: 'Manajemen petugas verifikasi',
     path: '/AuditPersonnelmanageInn',
     component:resolve => require(['../pages/order/AuditPersonnelmanageInn.vue'], resolve),
   },{
@@ -148,7 +144,7 @@ const routes = [{
     path: '/OrderDetails',
     component:resolve => require(['../pages/management/OrderDetails.vue'], resolve),
   },{
-    name: '全部订单详情',
+    name: 'Detail permohonan',
     path: '/OrderDetailsInn',
     component:resolve => require(['../pages/management/OrderDetailsInn.vue'], resolve),
   },{
@@ -188,7 +184,7 @@ const routes = [{
     path: '/AutomaticAudit-new',
     component:resolve => require(['../pages/automaticaudit/AutomaticAudit-new.vue'], resolve),
   },{
-    name: '自动审核配置-新户',
+    name: 'Audit Otomatis - Akun baru',
     path: '/AutomaticAudit-newInn',
     component:resolve => require(['../pages/automaticaudit/AutomaticAudit-newInn.vue'], resolve),
   },{
@@ -196,7 +192,7 @@ const routes = [{
     path: '/BackOrder',
     component:resolve => require(['../pages/collectionManagement/BackOrder.vue'], resolve),
   },{
-    name: 'permohonan terlambat',
+    name: 'Permohonan terlambat',
     path: '/BackOrderInn',
     component:resolve => require(['../pages/collectionManagement/BackOrderInn.vue'], resolve),
   },{
@@ -256,7 +252,7 @@ const routes = [{
     path: '/CollectionOrderDetails',
     component:resolve => require(['../pages/collectionManagement/CollectionOrderDetails.vue'], resolve),
   },{
-    name: 'penagihan permohonan',
+    name: 'Penagihan permohonan',
     path: '/CollectionOrderDetailsInn',
     component:resolve => require(['../pages/collectionManagement/CollectionOrderDetailsInn.vue'], resolve),
   },{
@@ -276,7 +272,7 @@ const routes = [{
       path: '/SendSmsBatch',
       component:resolve => require(['../pages/operate/SendSmsBatch.vue'], resolve),
     },{
-      name: 'updateUserName',
+      name: 'Ubah nama user',
       path: '/EditUserNameInn',
       component:resolve => require(['../pages/operate/EditUserNameInn.vue'], resolve),
     },{
@@ -292,7 +288,7 @@ const routes = [{
     path: '/SubConTract',
     component:resolve => require(['../pages/collectionManagement/SubConTract.vue'], resolve),
   },{
-    name: 'Alokasi permohonan terlambat',
+    name: 'Alokasi kolektor',
     path: '/SubConTractInn',
     component:resolve => require(['../pages/collectionManagement/SubConTractInn.vue'], resolve),
   },{
@@ -368,6 +364,10 @@ const routes = [{
     path: '/cancleOrder',
     component:resolve => require(['../pages/operate/cancleOrder.vue'], resolve),
   },{
+    name: 'Batalkan Order',
+    path: '/cancleOrderInn',
+    component:resolve => require(['../pages/operate/cancleOrderInn.vue'], resolve),
+  },{
     name: '催收黑名单管理',
     path: '/TamBahkan',
     component:resolve => require(['../pages/collectionManagement/TamBahkan.vue'], resolve),
@@ -400,7 +400,7 @@ const routes = [{
     path: '/personManage',
     component:resolve => require(['../pages/collectionManagement/personManage.vue'], resolve),
   },{
-    name: 'manajemen struktur pemimpin dan anggota kelompok',
+    name: 'Manajemen struktur pemimpin dan anggota kelompok',
     path: '/personManageInn',
     component:resolve => require(['../pages/collectionManagement/personManageInn.vue'], resolve),
   },{
@@ -507,11 +507,14 @@ const routes = [{
     name: 'Pengaturan Kupon Tersedia',
     path: '/couponIssuanceInn',
     component:resolve => require(['../pages/operate/couponIssuanceInn.vue'], resolve),
+  },{
+    path:'/unauthorizedInn',
+    component:resolve => require(['../pages/unauthorizedInn.vue'], resolve)
+  },{
+    path:'/404',
+    component:resolve => require(['../pages/404.vue'], resolve)
   }]
   },{
-  path:'/404',
-  component:resolve => require(['../pages/404.vue'], resolve)
-},{
   path:'*',
   redirect:{path:'/404'}
 }];

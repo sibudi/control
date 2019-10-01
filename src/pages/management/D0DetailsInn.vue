@@ -400,7 +400,7 @@ export default {
     exportExl() {
     	if(!(this.searchForm.startTime!= "" && this.searchForm.endTime != "")){
     		this.$message({
-    			message: '仅支持导出一周内的数据~',
+    			message: 'Silahkan masukan periode tanggal',
     			type: 'warning'
     		});
     		return;
@@ -408,7 +408,7 @@ export default {
 
     	if(DataUtil.JudgeDate(this.searchForm.startTime,this.searchForm.endTime,7)){
     		this.$message({
-    			message: '仅支持导出一周内的数据~',
+    			message: 'Maksimal data adalah 1 Minggu',
     			type: 'warning'
     		});
     		return;

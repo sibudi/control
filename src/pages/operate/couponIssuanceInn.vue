@@ -180,7 +180,7 @@ export default {
     let checkPermission = (rule, value, callback) => {
       let _arr = this.getPermissionIds(value)
       if (_arr.length == 0) {
-        callback(new Error('至少选择一项'))
+        callback(new Error('Pilih salah satu'))
       }
       callback()
     }
@@ -456,7 +456,7 @@ export default {
         this.$http.post('manage/sendCoupons', {'couponRequests':_data}).then(response => {
           if (1 == response.body.code) {
             this.dialogFirstHandle = false;
-            this.$message.success('成功发放数量为：'+ response.body.data);
+            this.$message.success('Kupon yang diterbitkan：'+ response.body.data);
             this.bindGrid();
           } else {
             this.$message.error(response.body.message);

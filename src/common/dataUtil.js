@@ -226,12 +226,30 @@ const DataUtil = {
 
     //这些页面不判断是否具有权限
     Arr.add('/home');
+    Arr.add('/homeInn');
     Arr.add('/404');
+    Arr.add('/unauthorizedInn');
     Arr.add('/login');
+    
+    Arr.add('/CollectionOrderDetailsInn');
+    Arr.add('/OrderDetailsInn');
+    Arr.add('/qualityDetailsInn');
     Arr.add('/UserDetail');
-    Arr.add('/DetailLoanData');
-    Arr.add('/OrderDetail');
-    Arr.add('/OrderInfoControl');
+    Arr.add('/OrderListDetailsInn');    
+    Arr.add('/completeOrderDetailInn');
+    //Arr.add('/RiviewTheListFirstInn');
+    //Arr.add('/RiviewTheListSecondInn');
+    
+    Arr.add('/orderPreliminaryReviewInn');
+    Arr.add('/orderSecondReviewInn');
+    Arr.add('/voiceTypeAtionInn');
+    Arr.add('/wauserawserInn');
+    
+    //ahalim: Remove authorization exclusion
+    // Arr.add('/UserDetail');
+    // Arr.add('/DetailLoanData');
+    // Arr.add('/OrderDetail');
+    // Arr.add('/OrderInfoControl');
     return Arr;
   }
 };

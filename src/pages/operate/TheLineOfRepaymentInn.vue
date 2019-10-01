@@ -79,7 +79,7 @@ export default {
         if(body.code == 1){
          this.$message({
           type: 'success',
-          message: '还款成功~~~'
+          message: 'Berhasil'//'还款成功~~~'
         });
 
          this.$refs.searchForm && this.$refs.searchForm.resetFields();

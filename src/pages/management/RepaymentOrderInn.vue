@@ -475,7 +475,7 @@ export default {
     bindGrid() {
     	if(this.searchForm.overdueDayMin && this.searchForm.overdueDayMax){
     		if(this.searchForm.overdueDayMin < 0 || this.searchForm.overdueDayMax < 0 || Number(this.searchForm.overdueDayMin) >= Number(this.searchForm.overdueDayMax)){
-    			this.$message.error("请先正确填写天数");
+    			this.$message.error("Durasi hari salah");
     			return false;
     		}
     	};

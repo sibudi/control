@@ -42,16 +42,27 @@ NProgress.configure({ showSpinner: false });
 const router = new VueRouter({
   routes
 });
-
-// router.beforeEach((to, from, next) => {
-//   NProgress.start();
-//   // let perMiss = DataUtil.getPermissionSet();  /*从localStorage中获取权限列表*/
-//   // if(perMiss.has(to.path)){       /*判断用户是否有该页面权限*/
-//   //   next()
-//   // }else{
-//   //   next({path:'/home'})        /*无权限跳转到 /home*/
-//   // }
-// });
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  let currentUrl = window.location.hash.split('#')[1].split('?')[0];
+  let isHavePermission = DataUtil.getPermissionSet().has(currentUrl.split("Inn")[0]);
+  let isHavePermissionInn = DataUtil.getPermissionSet().has(currentUrl);
+  if (!isHavePermission && !isHavePermissionInn && to.path !== '/unauthorizedInn') {
+    //Need to ignore the path to avoid infinite loop
+    next('/unauthorizedInn');
+    NProgress.done();
+  }
+  else {
+    next();
+  }
+  
+  // var perMiss = DataUtil.getPermissionSet();  /*从localStorage中获取权限列表*/
+  // if(perMiss.has(to.path)){       /*判断用户是否有该页面权限*/
+  //   next()
+  // }else{
+  //   next({path:'/unauthorizedInn'})        /*无权限跳转到 /home*/
+  // }
+});
 
 router.afterEach(transition => {
   NProgress.done();
@@ -63,10 +74,13 @@ Vue.http.interceptors.push(function(request, next) {
   request.url += '?sessionId='+DataUtil.sid()+'&ip='+localStorage.getItem("ip");
   next((response) => {
     if (!response.ok) {
-      this.$message.error(Config.ajaxError)
-    } else if (response.body.code === 9999) {
-      DataUtil.sid('')
-      this.$router.push('/login')
+      console.log(response);
+      //this.$message.error(Config.ajaxError);
+      //this.$router.push('/login');
+    } 
+    else if (response.body.code === 9999) {
+      DataUtil.sid('');
+      this.$router.push('/login');
     }
     return response;
   });

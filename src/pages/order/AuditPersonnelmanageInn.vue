@@ -77,7 +77,7 @@ export default {
 			this.getOurCollectionPerson(row.postEnglishName);
 			this.editForm.id = [];
 			this.editFormDigVisible = true;
-			this.commonForm.title = '编辑人员（'+row.postName+'）';
+			this.commonForm.title = 'Ubah Staff（'+row.postName+'）';
 			row.reviewers.forEach(e =>{
 				this.editForm.id.push(e.id);
 

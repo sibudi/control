@@ -5,7 +5,7 @@
         <el-input v-model="serchForm.orderNo" placeholder=""></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="bindGrid">取消订单</el-button>
+        <el-button type="primary" @click="bindGrid">Batalkan Pesanan</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -31,7 +31,7 @@ export default {
         if (1 == response.body.code && response.body.data == 1) {
           this.$message({
             type: 'success',
-            message:'取消订单成功'
+            message:'Pesanan telah dibatalkan'
           });
         } else {
           this.$message.error(response.body.message);

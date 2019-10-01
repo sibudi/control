@@ -9,7 +9,7 @@
     "start": "node build/dev-server.js",
     "build": "npm run clean && node build/build.js && npm run zip",
     "clean": "rm -rf dist/*",
-    "zip": "cd dist && tar --exclude=dist.tar.gz -zcf dist.tar.gz ."
+    "zip": "cd dist && touch dist.tar.gz && tar --exclude=dist.tar.gz -zcf dist.tar.gz ."
   },
   "dependencies": {
     "alertifyjs": "^1.10.0",

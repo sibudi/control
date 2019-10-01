@@ -179,7 +179,7 @@ export default {
 				this.reprotLoading = false;
 				let {body} = response;
 				if(body.code == 1 && body.data){
-					window.open('http://cn.control.do-it.id/manage/getExcelFile?path=/' + 'manage/getExcelFile?path=' + body.data);
+					window.open('manage/getExcelFile?path=/' + 'manage/getExcelFile?path=' + body.data);
 					this.bindGrid();
 					window.location.reload();
 				}else{
