@@ -7,9 +7,12 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
-    "build": "npm run clean && node build/build.js && npm run zip",
     "clean": "rm -rf dist/*",
-    "zip": "cd dist && touch dist.tar.gz && tar --exclude=dist.tar.gz -zcf dist.tar.gz ."
+    "compile": "node build/build.js",
+    "zip": "cd dist && touch dist.tar.gz && tar --exclude=dist.tar.gz -zcf dist.tar.gz .",
+    "deploy": "aliyun oss cp dist/dist.tar.gz oss://doit-build-5263863254564512/control/ -f",
+    "build": "npm run clean && npm run compile && npm run zip",
+    "publish": "npm run build && npm run deploy"
   },
   "dependencies": {
     "alertifyjs": "^1.10.0",
