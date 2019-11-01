@@ -13,10 +13,10 @@
   <!--添加-->
   <el-dialog title="Tambahkan izin" v-model="addDialogVisible" :close-on-click-modal="false" size="tiny">
     <el-form :model="addForm" label-position="left" label-width="80px" :rules="inputRule" ref="addForm">
-      <el-form-item label="Code" prop="permissionCode">
+      <el-form-item label="Kode" prop="permissionCode">
         <el-input v-model="addForm.permissionCode" auto-complete="off"></el-input>
       </el-form-item>
-      <el-form-item label="Namanya" prop="permissionName">
+      <el-form-item label="Nama" prop="permissionName">
         <el-input v-model="addForm.permissionName" auto-complete="off"></el-input>
       </el-form-item>
       <el-form-item label="Rute" prop="permissionUrl">
@@ -31,10 +31,10 @@
   <!--修改-->
   <el-dialog title="Ubah izin" v-model="editDialogVisible" :close-on-click-modal="false" size="tiny">
     <el-form :model="editForm" label-position="left" label-width="80px" :rules="inputRule" ref="editForm">
-      <el-form-item label="Code" prop="permissionCode">
+      <el-form-item label="Kode" prop="permissionCode">
         <el-input v-model="editForm.permissionCode" auto-complete="off"></el-input>
       </el-form-item>
-      <el-form-item label="Namanya" prop="permissionName">
+      <el-form-item label="Nama" prop="permissionName">
         <el-input v-model="editForm.permissionName" auto-complete="off"></el-input>
       </el-form-item>
       <el-form-item label="Rute" prop="permissionUrl">
@@ -81,12 +81,12 @@ export default {
           }],
           permissionName: [{
             required: true,
-            message: 'Silakan masuk Namanya',
+            message: 'Silakan masuk Nama',
             trigger: 'blur'
           }],
           permissionUrl: [{
             required: true,
-            message: 'Silakan masuk Rute',
+            message: 'Silakan masuk URL',
             trigger: 'blur'
           }]
         },
@@ -239,7 +239,7 @@ export default {
               if (1 == response.body.code) {
                 this.bindTree()
                 this.$message({
-                  message: 'Hapus berhasil merekam',
+                  message: 'Berhasil menghapus ijin',
                   type: 'success'
                 });
               } else {
@@ -262,7 +262,7 @@ export default {
                 this.addDialogVisible = false
                 this.bindTree()
                 this.$message({
-                  message: 'Ditambahkan berhasil',
+                  message: 'Berhasil menambahkan ijin',
                   type: 'success'
                 });
               } else {
@@ -289,7 +289,7 @@ export default {
                 this.editDialogVisible = false
                 this.bindTree()
                 this.$message({
-                  message: 'Diubah dengan sukses',
+                  message: 'Berhasil mengubah ijin',
                   type: 'success'
                 });
               } else {
@@ -310,7 +310,7 @@ export default {
         store
       }) {
        return (
-        <span><span><span>{data.permissionName}({data.permissionUrl})</span></span><span style = "float: right; margin-right: 20px">
+        <span><span><span>{data.permissionName} ({data.permissionUrl})</span></span><span style = "float: right; margin-right: 20px">
         <el-button disabled={node.level!=1} type="success" size = "mini"  on-click = {() => this.addNode(data)} >Tambah batas akses</el-button>
         <el-button size = "mini" on-click = {() => this.edit(data)} >Modifikasi</el-button>
         <el-button style="display:none;"  disabled={data.children&&data.children.length>0} type="danger" size = "mini"  on-click = {() => this.del(data)} >Hapus</el-button>

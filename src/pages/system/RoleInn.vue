@@ -10,7 +10,7 @@
     <el-table :data="gridData" highlight-current-row v-loading="gridLoading" class="grid">
       <el-table-column type="index" width="80">
       </el-table-column>
-      <el-table-column prop="remark" label="Nama peran" width="150">
+      <el-table-column prop="remark" label="Nama peran" width="250px">
         <template scope="scope">
           <el-tooltip effect="dark" placement="bottom-start">
             <div slot="content">
@@ -32,12 +32,12 @@
       </el-table-column>
       <el-table-column label="Status" width="100">
         <template scope="scope">
-          <el-tag :type="scope.row.status==1 ? 'danger' : 'primary'" close-transition>{{scope.row.status==1?'Cacat':'Aktifkan'}}</el-tag>
+          <el-tag :type="scope.row.status==1 ? 'danger' : 'primary'" close-transition>{{scope.row.status==1?'Non-aktif':'Aktif'}}</el-tag>
         </template>
       </el-table-column>
       <el-table-column label="Opsi" width="100">
         <template scope="scope">
-          <el-button size="small" @click="edit(scope.row)">Pengeditan</el-button>
+          <el-button size="small" @click="edit(scope.row)">Ubah</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -77,7 +77,7 @@
         <el-form-item label="Catatan" prop="remark">
           <el-input type="textarea" :autosize="{minRows: 2,maxRows: 4}" v-model="editForm.remark" :maxlength="200"></el-input>
         </el-form-item>
-        <el-form-item label="Otoritas" prop="permissionObj">
+        <el-form-item label="Ijin" prop="permissionObj">
           <template v-for="(item,index) in editForm.permissionObj">
             <el-checkbox :label="item.id" :indeterminate="editForm.permissionObj[index].indeterminate" v-model="editForm.permissionObj[index].isCheck"
             @change="checkAllChange2">{{item.permissionName}}</el-checkbox>
