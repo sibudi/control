@@ -154,6 +154,10 @@
               <td>Alamat Detail Tempat Tinggal Sekarang</td>
               <td>{{baseInfList.detailed}}</td>
             </tr>
+            <tr>
+              <td>Alamat Email</td>
+              <td>{{baseInfList.email}}</td>
+            </tr>
           </table>
 
           <table v-if="familySeen" border='.1px' width="100%" style="table-layout:fixed;">
@@ -211,6 +215,10 @@
             <tr>
               <td>Alamat Detail Tempat Tinggal Sekarang</td>
               <td>{{baseInfList.detailed}}</td>
+            </tr>
+            <tr>
+              <td>Alamat Email</td>
+              <td>{{baseInfList.email}}</td>
             </tr>
           </table>
 
@@ -281,6 +289,10 @@
             <tr>
               <td>Alamat Detail Tempat Tinggal Sekarang</td>
               <td>{{baseInfList.detailed}}</td>
+            </tr>
+            <tr>
+              <td>Alamat Email</td>
+              <td>{{baseInfList.email}}</td>
             </tr>
           </table>
 
