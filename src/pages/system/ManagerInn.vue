@@ -54,7 +54,7 @@
           <el-tag :type="scope.row.status==0? 'success' : 'danger'" close-transition>{{scope.row.status==0?'Aktif':'Blokir'}}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="Status Online" min-width="100"> 
+      <el-table-column label="Status Online" min-width="100">
         <template scope="scope">
           <el-tag :type="scope.row.onlineOrNot==true? 'primary' : 'danger'" close-transition>{{scope.row.onlineOrNot==true?'Ya':'Bukan'}}</el-tag>
         </template>
@@ -329,6 +329,7 @@ export default {
             let _data = Object.assign({}, this.addForm)
             _data.status = _data.status ? '0' : '1'
             _data.third = _data.third ? '0' : '1'
+            _data.thirdPlatform = _data.thirdPlatform ? false : true
             _data.roleIds = _data.roleIds.join(',')
             if(_data.roleIds == 0){
               this.$message({
