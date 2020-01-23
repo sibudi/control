@@ -357,7 +357,9 @@ export default {
         },{
           permissionName: 'Manajemen informasi jadwal',
           permissionUrl: '/workforceManagementInn',
-        }]
+        }
+
+      ]
       },{
         permissionName:'Manajemen operator',
         permissionUrl:'/',
@@ -379,7 +381,11 @@ export default {
         },{
           permissionName:'Batalkan Permohonan',
           permissionUrl:'/cancleOrderInn',
-        }]
+        },{
+          permissionName: 'Manajemen Tugas',
+          permissionUrl: '/t90Inn',
+        }
+      ]
       },{
         permissionName:'Manajemen keuangan',
         permissionUrl:'/',
@@ -559,7 +565,7 @@ export default {
     width: 100%;
   }
 
-  .header {  
+  .header {
     height: 60px;
     line-height: 60px;
     background: #1F2D3D;

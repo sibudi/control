@@ -2,9 +2,11 @@
  * Created by alan on 17-4-30.
  */
  let Config = {
-  //host: '/', 
+  //host: '/',
   //use control-uat, it's the one who have the correct SSL for now.
-  host: process.env.NODE_ENV === 'development'? 'https://control-uat.doitglotech.co.id' : '/', 
+  host: process.env.NODE_ENV === 'development'? 'https://control-uat.doitglotech.co.id' : '/',
+  oss: process.env.NODE_ENV === 'development'? 'https://collectionapi-uat.doitglotech.co.id' : '/collection',
+  //host: process.env.NODE_ENV === 'development'? 'http://localhost:8082' : '/',
   ajaxError:'Silahkan login ulang'
 
   // host:'http://control.yqguan.com',

@@ -416,6 +416,10 @@ const routes = [{
     path: '/workforceManagementInn',
     component:resolve => require(['../pages/collectionManagement/workforceManagementInn.vue'], resolve),
   },{
+    name: 'Manajemen T90',
+    path: '/t90Inn',
+    component:resolve => require(['../pages/collectionManagement/t90Inn.vue'], resolve),
+  },{
     name: 'Komplain terhadap Kolektor',
     path: '/complaintPersonListInn',
     component:resolve => require(['../pages/collectionManagement/complaintPersonListInn.vue'], resolve),
