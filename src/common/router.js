@@ -420,6 +420,10 @@ const routes = [{
     path: '/t90Inn',
     component:resolve => require(['../pages/collectionManagement/t90Inn.vue'], resolve),
   },{
+    name: 'Manajemen Email dan PIN',
+    path: '/emailPINInn',
+    component:resolve => require(['../pages/collectionManagement/emailPINInn.vue'], resolve),
+  },{
     name: 'Komplain terhadap Kolektor',
     path: '/complaintPersonListInn',
     component:resolve => require(['../pages/collectionManagement/complaintPersonListInn.vue'], resolve),

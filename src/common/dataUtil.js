@@ -252,7 +252,7 @@ const DataUtil = {
     // Arr.add('/DetailLoanData');
     // Arr.add('/OrderDetail');
     // Arr.add('/OrderInfoControl');
-    // Arr.add('/t90management');
+    // Arr.add('/emailPIN');
     return Arr;
   }
 };

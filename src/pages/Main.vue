@@ -384,6 +384,9 @@ export default {
         },{
           permissionName: 'Manajemen Tugas',
           permissionUrl: '/t90Inn',
+        },{
+          permissionName: 'Manajemen Email dan PIN',
+          permissionUrl: '/emailPINInn',
         }
       ]
       },{
