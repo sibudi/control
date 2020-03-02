@@ -113,7 +113,10 @@
                 <span>*********</span>
               </el-tooltip></div></td>
             </tr>
-
+            <tr>
+              <td>Alamat e-mail</td>
+              <td>{{baseInfList.email}}</td>
+            </tr>
             <tr>
               <td>Riwayat Pendidikan Terakhir</td>
               <td>{{baseInfList.academic}}</td>
@@ -289,10 +292,6 @@
             <tr>
               <td>Alamat Detail Tempat Tinggal Sekarang</td>
               <td>{{baseInfList.detailed}}</td>
-            </tr>
-            <tr>
-              <td>Alamat Email</td>
-              <td>{{baseInfList.email}}</td>
             </tr>
           </table>
 
