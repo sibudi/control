@@ -387,6 +387,12 @@ export default {
         },{
           permissionName: 'Manajemen Email dan PIN',
           permissionUrl: '/emailPINInn',
+        },{
+          permissionName: 'Informasi Pembayaran',
+          permissionUrl: '/CollectionOrderDetailsByIdInn',
+        },{
+          permissionName: 'Informasi Pembayaran Admin',
+          permissionUrl: '/CollectionOrderDetailsByIdAdminInn',
         }
       ]
       },{
