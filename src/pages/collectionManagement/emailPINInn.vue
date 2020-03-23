@@ -129,9 +129,9 @@ export default {
       let _data = Object.assign({},this.ruleForm);
       this.$http.post('manage/user/updateemail', _data).then(response => {
         let {body} = response;
-        if (1 == body.code) {
+        if (1 === body.code) {
             this.loading = false;
-            if(body.data == "Duplikat email"){
+            if(body.data === "Duplikat email"){
               this.$message.error("Email Sudah Terdaftar");
             }
             else{
